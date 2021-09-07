@@ -2,6 +2,10 @@
 
 // Importing Helpers
 import React, { useState } from "react";
+import { fetchQuizQuestions } from "./components/API";
+
+// Importing Types
+import { Difficulty } from "./components/API";
 
 // Importing Components
 import QuestionCard from "./components/QuestionCard";
@@ -18,6 +22,8 @@ const App = () => {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [gaveOver, setGameOver] = useState(true);
+
+  console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.MEDIUM));
 
   // Function to start quiz
   const startTrivia = async () => {};
@@ -37,7 +43,7 @@ const App = () => {
       </button>
       <p className="score">Score: </p>
       <p>Loading Questions...</p>
-      <QuestionCard
+      {/* <QuestionCard
         questionNumber={questionNumber + 1}
         totalQuestions={TOTAL_QUESTIONS}
         question={questions[questionNumber].question}
@@ -46,7 +52,7 @@ const App = () => {
           selectedAnswers ? selectedAnswers[questionNumber] : undefined
         }
         callback={checkAnswer}
-      />
+      /> */}
       <button className="next" onClick={nextQuestion}>
         Next
       </button>
