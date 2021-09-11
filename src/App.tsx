@@ -1,11 +1,11 @@
-// App
+// App - 39 Min - https://www.youtube.com/watch?v=F2JCjVSZlG0
 
 // Importing Helpers
 import React, { useState } from "react";
 import { fetchQuizQuestions } from "./components/API";
 
 // Importing Types
-import { Difficulty } from "./components/API";
+import { QuestionState, Difficulty } from "./components/API";
 
 // Importing Components
 import QuestionCard from "./components/QuestionCard";
@@ -13,11 +13,19 @@ import QuestionCard from "./components/QuestionCard";
 // Total Questions Const
 const TOTAL_QUESTIONS = 15;
 
+// Answer Object Type
+type AnswerObject = {
+  question: string;
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+};
+
 // Functional Component
 const App = () => {
   // State Variables
   const [loading, setLoading] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [score, setScore] = useState(0);
