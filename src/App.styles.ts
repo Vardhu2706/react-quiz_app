@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   text-align: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 100px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 
